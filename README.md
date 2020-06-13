@@ -14,12 +14,12 @@
 下面route的地方加入這個
 "<Route exact path="/membercenter">
               <Membercenter />
-            </Route>"
+            </Route>
 # Step 3
 Mynavbar中請加入 一個連結 方便連
 "<Nav.Link as={NavLink} to="/membercenter">
             Member center
-          </Nav.Link>"
+          </Nav.Link>
 # Step 4
 把其他檔案放入資料夾中
 ex:
