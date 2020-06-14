@@ -115,7 +115,7 @@ function MemberEditForm(props) {
             <td>{member.created_at}</td>
           </tbody>
         </Table>
-        <button className="btn btn-primary" onClick={()=>{handleEditedSave(member)}} >SAVE</button>
+        <button className="btn btn-primary" onClick={()=>{handleEditedSave(member);setIsedit(!isedit)}} >SAVE</button>
       </Col>
     </>
   )

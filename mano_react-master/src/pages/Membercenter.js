@@ -57,9 +57,21 @@ function Membercenter() {
   const handleEditedSave = (member) => {
     const newMember = member
     updateMemberToSever(newMember)
-    setIsedit(!isedit)
     setMember(newMember)
     alert("儲存成功")
+  }
+  async function updateImgToSever(item, successCallback = () => {}) {
+    const fd = new FormData(document.form1)
+    const request = new Request("http://localhost:3002/membercenter/upimg", {
+      method: "PUT",
+      body: fd,
+    })
+
+    console.log("After JSON: ", JSON.stringify(fd))
+
+    const response = await fetch(request)
+    const data = await response.json()
+
   }
 
   return (
@@ -71,6 +83,7 @@ function Membercenter() {
           setMember={setMember}
           ischangepwd={ischangepwd}
           setIschangepwd={setIschangepwd}
+          handleEditedSave={handleEditedSave}
         />
       ) : (
         <MemberListShow
