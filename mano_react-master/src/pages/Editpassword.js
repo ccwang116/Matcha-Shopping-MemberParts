@@ -1,49 +1,104 @@
 import React, { useState, useEffect } from "react"
-import { Form } from "react-bootstrap"
+import { Form, Alert } from "react-bootstrap"
+import MemberEditForm from "./MemberEditForm";
+
+var sha1 = require('sha1');
+
+
 
 function Editpassword(props) {
-  const { member, setMember,ischangepwd, setIschangepwd } = props
+  const { member, setMember, ischangepwd, setIschangepwd,handleEditedSave } = props
+  const [thesame, setThesame] = useState(false)
+  const [pwd1, setPwd1] = useState("")
+  const [pwd2, setPwd2] = useState("")
+  const [oldpwd, setOldpwd] = useState("")
+  const [newmember,setNewmember] = useState("")
+  const [content, setContent] = useState(false)
+  const [appear, setAppear] = useState(false)
+
+  function checkOldPwd() {
+    // console.log(member.pwd)
+    // console.log("before",oldpwd,"after",sha1(oldpwd))
+    if (sha1(oldpwd) === member.pwd) {
+      setThesame(true)
+    } else {
+      setThesame(false)
+    }
+  }
+  function validate() {
+    if (pwd1 == pwd2 && pwd1.length > 5) {
+      setContent(true)
+    } else {
+      setContent(false)
+    }
+  }
   return (
     <>
-      <form style={{"width":"200px"}}>
+      <form style={{ width: "200px" }}>
         <Form.Group controlId="formBasicEmail">
           <Form.Label>輸入舊密碼</Form.Label>
           <Form.Control
             id="oldpassword"
             type="password"
-            value={member.password}
             onChange={(event) => {
-              setMember({
-                ...member,
-                password: event.target.value,
-              })
+              setOldpwd(event.target.value)
             }}
+            required
           />
+          {!appear ? (
+            ""
+          ) : (
+            <Alert id="hint1" variant={thesame ? "success" : "danger"}>
+              {thesame ? "通過密碼" : "密碼不通過請重新輸入"}
+            </Alert>
+          )}
           <Form.Label>輸入新密碼</Form.Label>
           <Form.Control
-            id="oldpassword"
+            id="pwd1"
             type="password"
-            value={member.password}
+            min={6}
+            onFocus={()=>{checkOldPwd();setAppear(true)}}
+            onKeyUp={() => validate()}
+            value={pwd1}
             onChange={(event) => {
-              setMember({
-                ...member,
-                password: event.target.value,
-              })
+              setNewmember(member)
+              setPwd1(event.target.value)
             }}
+            required
           />
           <Form.Label>再次輸入新密碼</Form.Label>
           <Form.Control
-            id="oldpassword"
+            id="pwd2"
             type="password"
-            value={member.password}
+            value={pwd2}
+            onKeyUp={() => validate()}
             onChange={(event) => {
-              setMember({
-                ...member,
-                password: event.target.value,
+              setNewmember({
+                ...newmember,
+                pwd: sha1(pwd2),
               })
+              setPwd2(event.target.value)
             }}
+            required
           />
-          <button className="btn btn-primary" onClick={()=>{setIschangepwd(!ischangepwd)}}>Submit</button>
+          {pwd1 === "" ? (
+            ""
+          ) : (
+            <Alert id="hint2" variant={content ? "success" : "danger"}>
+              {content ? "兩次密碼一致" : "兩次密碼不一致，密碼至少要6個字以上"}
+            </Alert>
+          )}
+          <button
+            className="btn btn-primary"
+            onClick={() => {
+              setIschangepwd(!ischangepwd)
+              
+              handleEditedSave(newmember)
+            }}
+            disabled={!(content && thesame)}
+          >
+            Submit
+          </button>
         </Form.Group>
       </form>
     </>
