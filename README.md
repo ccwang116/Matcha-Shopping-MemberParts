@@ -27,5 +27,6 @@ public/memberimgs
 pages/所有member相關的js,還有editpassword.js,coupon.js
 # 6/16更新
 npm i sha1
+# 小提醒
 areaData.js檔案記得
 sql檔案增加行政區域～（配合修改會員資料）
