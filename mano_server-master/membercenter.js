@@ -46,7 +46,7 @@ router.put('/upimg',  (req, res)=>{
     // res.send('ok')
 })
 
-//顯示會員資料
+//顯示折價券資料
 router.get('/coupon',(req,res)=>{
     // res.send('ok')
     db.query(`SELECT * FROM rel_coupon_member, marketing WHERE rel_coupon_member.memberId = marketing.memberID AND rel_coupon_member.memberId = 'M002'`)
