@@ -1,9 +1,36 @@
 import React, { useState, useEffect } from "react"
-import { Table, Container, Row, Col, ListGroup, Image } from "react-bootstrap"
-
+import { Table, Container, Row, Col, ListGroup, Image,Form } from "react-bootstrap"
+import areaData from "./areaData"
 function MemberEditForm(props) {
-  const { member, setMember, isedit, setIsedit ,handleEditedSave} = props
-  
+  const {
+    member,
+    setMember,
+    isedit,
+    setIsedit,
+    handleEditedSave,
+    handleImgSave,
+  } = props
+
+
+  const [indexstatus, setIndexstatus] = useState(0)
+  const city = areaData.map((value,index) => {
+    return(
+      <option key={index}value={value.city} >{value.city}</option>
+  )})
+  const district = areaData.map((value,index) => {
+    return(
+      value.district.map((area,index)=>{
+        return(
+          <option key={index}value={area} >{area}</option>
+        )
+      })
+     
+  )})
+  function areaChange(){
+    var objS = document.getElementById("pid");
+    setIndexstatus(objS.selectedIndex)
+    }
+
   return (
     <>
       <Col md={10} xs={12}>
@@ -17,7 +44,31 @@ function MemberEditForm(props) {
                 rounded
               />
               <th colSpan={4}>
-                <input id="uploadfile" type="file" />
+                <Form name="form1">
+                  <Form.Group>
+                    <Form.File
+                      id="avatar"
+                      name="avatar"
+                      onChange={(event) => {
+                        setMember({
+                          ...member,
+                          memberImg:
+                            Date.now() +
+                            event.target.files[0].name.substr(-4, 4),
+                        })
+                      }}
+                    />
+                    
+                  </Form.Group>
+                  <button
+                    onClick={() => {
+                      handleImgSave(member)
+                    }}
+                  >
+                    上傳新的大頭貼
+                  </button>
+                </Form>
+                <img src="" alt="" id="myimg"></img>
               </th>
             </tr>
             <tr>
@@ -49,29 +100,31 @@ function MemberEditForm(props) {
           </thead>
           <tbody>
             <td>
-            <input
-              id="editmemberName"
-              type="text"
-              value={member.memberName}
-              onChange={(event) => {
-                setMember({
-                  ...member,
-                  memberName: event.target.value,
-                })
-              }}
-            /></td>
+              <input
+                id="editmemberName"
+                type="text"
+                value={member.memberName}
+                onChange={(event) => {
+                  setMember({
+                    ...member,
+                    memberName: event.target.value,
+                  })
+                }}
+              />
+            </td>
             <td>
               <input
-              id="editphone"
-              type="text"
-              value={member.phone}
-              onChange={(event) => {
-                setMember({
-                  ...member,
-                  phone: event.target.value,
-                })
-              }}
-            /></td>
+                id="editphone"
+                type="text"
+                value={member.phone}
+                onChange={(event) => {
+                  setMember({
+                    ...member,
+                    phone: event.target.value,
+                  })
+                }}
+              />
+            </td>
           </tbody>
           <thead>
             <tr>
@@ -81,29 +134,41 @@ function MemberEditForm(props) {
           </thead>
           <tbody>
             <tr>
-              <td><input
-              id="editpaymentCity"
-              type="text"
-              value={member.paymentCity}
-              onChange={(event) => {
-                setMember({
-                  ...member,
-                  paymentCity: event.target.value,
-                })
-              }}
-            />
-            </td>
-              <td><input
-              id="editshipAddress"
-              type="text"
-              value={member.shipAddress}
-              onChange={(event) => {
-                setMember({
-                  ...member,
-                  shipAddress: event.target.value,
-                })
-              }}
-            /></td>
+              <td>
+              {member.paymentCity}{member.paymentDistrict}
+              <br />
+                <select id="pid" onChange={(event)=>{areaChange();
+                  setMember({
+                    ...member,
+                    paymentCity: event.target.value,
+                    paymentDistrict: "請選擇區域",
+                  })
+                }}>
+                 {city}
+                </select>
+                <select onChange={(event)=>{
+                  setMember({
+                    ...member,
+                    paymentDistrict: event.target.value,
+                  })
+                }}>
+                  {district[indexstatus]}
+                </select>
+                
+              </td>
+              <td>
+                <input
+                  id="editshipAddress"
+                  type="text"
+                  value={member.shipAddress}
+                  onChange={(event) => {
+                    setMember({
+                      ...member,
+                      shipAddress: event.target.value,
+                    })
+                  }}
+                />
+              </td>
             </tr>
           </tbody>
           <thead>
@@ -115,7 +180,21 @@ function MemberEditForm(props) {
             <td>{member.created_at}</td>
           </tbody>
         </Table>
-        <button className="btn btn-primary" onClick={()=>{handleEditedSave(member);setIsedit(!isedit)}} >SAVE</button>
+        <button
+          className="btn btn-primary"
+          onClick={() => {
+            handleEditedSave(member)
+            setIsedit(!isedit)
+          }}
+        >
+          SAVE
+        </button>
+        <button
+          className="btn btn-secondary"
+          onClick={() => setIsedit(!isedit)}
+        >
+          取消編輯
+        </button>
       </Col>
     </>
   )

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react"
 import { Form, Alert } from "react-bootstrap"
-import MemberEditForm from "./MemberEditForm";
 
 var sha1 = require('sha1');
 
@@ -15,7 +14,7 @@ function Editpassword(props) {
   const [newmember,setNewmember] = useState("")
   const [content, setContent] = useState(false)
   const [appear, setAppear] = useState(false)
-
+  
   function checkOldPwd() {
     // console.log(member.pwd)
     // console.log("before",oldpwd,"after",sha1(oldpwd))
@@ -71,12 +70,11 @@ function Editpassword(props) {
             id="pwd2"
             type="password"
             value={pwd2}
-            onKeyUp={() => validate()}
+            onKeyUp={() =>{ validate();setNewmember({
+              ...newmember,
+              pwd: sha1(pwd2),
+            })}}
             onChange={(event) => {
-              setNewmember({
-                ...newmember,
-                pwd: sha1(pwd2),
-              })
               setPwd2(event.target.value)
             }}
             required
@@ -91,13 +89,22 @@ function Editpassword(props) {
           <button
             className="btn btn-primary"
             onClick={() => {
-              setIschangepwd(!ischangepwd)
               
+              setIschangepwd(!ischangepwd)
               handleEditedSave(newmember)
             }}
             disabled={!(content && thesame)}
           >
             Submit
+          </button>
+          <div style={{width:'10px'}}>   </div>
+          <button
+            className="btn btn-secondary"
+            onClick={() => {              
+              setIschangepwd(!ischangepwd)
+            }}
+          >
+            取消修改
           </button>
         </Form.Group>
       </form>

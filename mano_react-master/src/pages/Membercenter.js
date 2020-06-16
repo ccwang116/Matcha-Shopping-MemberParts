@@ -4,6 +4,7 @@ import { Table, Container, Row, Col, ListGroup, Image } from "react-bootstrap"
 import { withRouter } from "react-router-dom"
 import MemberListShow from "./MemberListShow"
 import Editpassword from "./Editpassword"
+import MyBreadcrumb from '../components/MyBreadcrumb'
 
 function Membercenter() {
   const [member, setMember] = useState("")
@@ -64,19 +65,28 @@ function Membercenter() {
     const fd = new FormData(document.form1)
     const request = new Request("http://localhost:3002/membercenter/upimg", {
       method: "PUT",
-      body: fd,
+      body: JSON.stringify(item),
+      headers: new Headers({
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      }),
     })
 
-    console.log("After JSON: ", JSON.stringify(fd))
+    console.log("image-After JSON: ", JSON.stringify(fd))
 
     const response = await fetch(request)
     const data = await response.json()
-
+    // await document.getElementById("myimg").setAttribute('src', 'http://localhost:3002/img-uploads/' +data.filename);
   }
-
+  const handleImgSave = (member) => {
+    const newMember = member
+    updateImgToSever(newMember)
+    setMember(newMember)
+    alert("儲存成功")
+  }
   return (
     <>
-      
+      <MyBreadcrumb />
       {ischangepwd ? (
         <Editpassword
           member={member}
@@ -94,6 +104,7 @@ function Membercenter() {
         handleEditedSave={handleEditedSave}
         ischangepwd={ischangepwd}
         setIschangepwd={setIschangepwd}
+        handleImgSave={handleImgSave}
       />
       )}
     </>
