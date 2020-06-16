@@ -12,9 +12,9 @@
  import Membercenter from './pages/Membercenter'
 # Step 2
 下面route的地方加入這個
-"<Route exact path="/membercenter">
+<code><Route exact path="/membercenter">
               <Membercenter />
-            </Route>
+            </Route></code>
 # Step 3
 Mynavbar中請加入 一個連結 方便連
 "<Nav.Link as={NavLink} to="/membercenter">
@@ -24,4 +24,8 @@ Mynavbar中請加入 一個連結 方便連
 把其他檔案放入資料夾中
 ex:
 public/memberimgs
-pages/所有member相關的js,還有editpassword.js
+pages/所有member相關的js,還有editpassword.js,coupon.js
+# 6/16更新
+npm i sha1
+areaData.js檔案記得
+sql檔案增加行政區域～（配合修改會員資料）
