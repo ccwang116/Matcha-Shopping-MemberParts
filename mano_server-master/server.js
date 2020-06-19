@@ -4,6 +4,7 @@ const cors = require("cors");
 
 
 
+
 const app = express();
 
 
@@ -31,12 +32,14 @@ app.get("/", (req, res) => {
   res.json({ message: "Welcome" });
 });
 
+// app.use('/img-uploads', require(__dirname+'/public/img-uploads/'))
+
 app.use('/items', require(__dirname+'/items'))
 app.use('/category', require(__dirname+'/category'))
 app.use('/membercenter', require(__dirname+'/membercenter'))
 //相當於const membercenter = require(__dirname+'/membercenter')//再把變數放上面
 
-
+app.use(express.static('public'));
 
 // set port, listen for requests
 app.listen(3002, function(){
