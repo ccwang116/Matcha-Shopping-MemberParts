@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react"
 import { Table, Container, Row, Col, ListGroup, Image } from "react-bootstrap"
 import MemberSideLink from "./MemberSideLink"
 import MyBreadcrumb from "../components/MyBreadcrumb"
-import "../styles/coupon-style.css"
 
 function Coupon() {
   const [coupon, setCoupon] = useState([])

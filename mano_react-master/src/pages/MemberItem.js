@@ -8,7 +8,6 @@ function MemberItem(props) {
   })
   return (
     <>
-      <div style={{background:"url(/bg-pattern.svg) repeat", position:" fixed",left: '0',top: '0',width: "25vw",height: "100vh",opacity:'0.1'}}></div>
 
       <Col md={10} xs={12} style={{background:"white"}}>
         <Table responsive id="maintable">

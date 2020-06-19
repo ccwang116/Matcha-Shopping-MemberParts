@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react"
 import { Table, Container, Row, Col, ListGroup, Image } from "react-bootstrap"
 
 function MemberSideLink(props) {
-  const aListStyle ={background:"transparent",color:"white",border:"none",border:"none"}
+  const aListStyle ={background:"transparent",color:"white",border:"none"}
   return (
     <>   
+      <div style={{background:"url(/bg-pattern.svg) repeat", position:" fixed",left: '0',top: '0',width: "25vw",height: "100vh",opacity:'0.1'}}></div>
+
       <Container>
         <Row>
           <Col md={2}>
