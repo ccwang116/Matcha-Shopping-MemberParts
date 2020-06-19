@@ -34,6 +34,8 @@ sql檔案增加行政區域～（配合修改會員資料）YESS
 ## 前端：
 custom整個顏色都改
 navbar
+index.html裡面加fontawesomeCDN
+https://use.fontawesome.com/releases/v5.8.1/css/all.css
 
 會員中心顏色有改
 
