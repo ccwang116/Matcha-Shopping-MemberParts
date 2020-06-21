@@ -49,16 +49,16 @@ member center有改（儲存圖片
 前後端member center.js都有加上變數
 
 ## 前端
-order的router
+order的router記得。
 custom css裡面的變數請用我定義的～
 ## 後端
 order的router(member center裡面）
 
 ## 備註 ：如果前台無法判斷會員登入，請手動增加
-memberId在localstorge裡面
-例如
+memberId在localstorge裡面，
+例如：
 {
 “memberId”:”M002”,
 “username”:”陳ＯＯ”
 }
-（等待會員登入把id也寫進去）
+###（等待會員登入把id也寫進去）
