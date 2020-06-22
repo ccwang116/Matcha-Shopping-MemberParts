@@ -62,3 +62,8 @@ memberId在localstorge裡面，
 “username”:”陳ＯＯ”
 }
 ###（等待會員登入把id也寫進去）
+# 622修改紀錄
+深色背景命名，
+新的路由app，
+member系列一堆的東西，
+新的item track

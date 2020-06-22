@@ -6,15 +6,15 @@ import MemberListShow from "./MemberListShow"
 import Editpassword from "./Editpassword"
 import MyBreadcrumb from '../components/MyBreadcrumb'
 
-function Membercenter() {
+function Membercenter(props) {
+  const {changeBackgroundColorDark}=props
   const [member, setMember] = useState("")
   const [isedit, setIsedit] = useState(false)
   const [ischangepwd, setIschangepwd] = useState(false)
 
   const localMember = JSON.parse(localStorage.getItem('member')) || [{ memberName: '' ,memberId:''}]
-  function changeBackgroundColor(){
-    document.body.style.background ='#5C6447'
-  }
+  
+  
   async function getData(memberId) {
     const request = new Request(`http://localhost:3002/membercenter/list/${memberId}`, {
       method: "GET",
@@ -32,7 +32,7 @@ function Membercenter() {
   }
   useEffect(() => {
     getData(localMember[0].memberId)
-    changeBackgroundColor()
+    changeBackgroundColorDark()
   }, [])
   async function updateMemberToSever(item, successCallback = () => {}) {
     // 開啟載入指示
