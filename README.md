@@ -67,3 +67,12 @@ memberId在localstorge裡面，
 新的路由app，
 member系列一堆的東西，
 新的item track
+# 623修改紀錄
+## 前端
+ lifePage.js 以及css（在同一個資料夾裡），
+MallPage.js 以及css(在styles裡)，也加了路由。
+member order加了method，
+coupon加了faq連結。
+新圖片兩張logo在public裡。
+## 後端
+MallPagehome.js 以及 在server建立路由
