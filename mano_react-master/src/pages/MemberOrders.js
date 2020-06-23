@@ -223,6 +223,7 @@ function MemberOrders(props) {
                   <th>訂單日期</th>
                   <th>訂單狀態</th>
                   <th>訂單金額</th>
+                  <th>付款方式</th>
                   <th>付款狀態</th>
                   <th>出貨狀態</th>
                   <th>明細</th>
@@ -239,6 +240,7 @@ function MemberOrders(props) {
                       </td>
                       <td>訂單成立</td>
                       <td>${value.totalPrice}</td>
+                      <td>{value.paymentMethod}</td>
                       <td>{value.paymentStatus}</td>
                       <td>{value.shipStatus}</td>
                       <td
