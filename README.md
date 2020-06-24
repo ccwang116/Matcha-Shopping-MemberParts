@@ -76,3 +76,10 @@ coupon加了faq連結。
 新圖片兩張logo在public裡。
 ## 後端
 MallPagehome.js 以及 在server建立路由
+# 624 只有前端
+## Public
+home_with_oval.svg
+## Pages
+home
+## Styles
+home
