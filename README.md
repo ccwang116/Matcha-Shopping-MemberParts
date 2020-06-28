@@ -83,3 +83,11 @@ home_with_oval.svg
 home
 ## Styles
 home
+# 628修改紀錄
+## 前端
+1. custom scss 第50行、第31行footer  color註解掉 增加footer-dark。
+2. component的myFooter.js有改一些變數（ 會員中心用）和mybreadcrumbForMember.js
+ 3.版面微調 pages裡面的member開頭所有頁面and Editpassword and coupon。
+## 後端
+membercenter js  有改顯示訂單的sql（為了前面的搜尋
+mallpagehome.js  撈圖片好看的商品
