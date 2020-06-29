@@ -91,3 +91,6 @@ home
 ## 後端
 membercenter js  有改顯示訂單的sql（為了前面的搜尋
 mallpagehome.js  撈圖片好看的商品
+# 629修改紀錄
+order搜尋優化，sidelink的life變數補加toggle。
+mall page、 life page .css、 life page .js優化， 增加topbanner.js。
