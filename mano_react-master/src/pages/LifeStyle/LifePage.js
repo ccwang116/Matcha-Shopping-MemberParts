@@ -138,7 +138,7 @@ function LifePage(props) {
       <h3>Find your friends and lifestyle here</h3>
       </div> */}
       <div className="big-field d-flex justify-content-center row row-cols-md-2 row-cols-1">
-        <div className="card-field2 d-flex flex-wrap col">
+        <div className="card-field2 d-flex flex-wrap col ">
           <div
             className="card-horizon"
             data-aos="fade-up"
@@ -153,8 +153,8 @@ function LifePage(props) {
               故事牆 <i className="fas fa-arrow-right"></i>
             </button>
           </div>
-          <div className="d-flex" data-aos="fade-up" data-aos-duration="800">
-            <div className="card-vertical">
+          <div className="d-flex flex-fill " data-aos="fade-up" data-aos-duration="800">
+            <div className="card-vertical flex-fill">
               <img
                 className="c-v-img"
                 src="https://cdn.pixabay.com/photo/2018/10/08/21/22/bank-3733501__340.jpg"
@@ -167,12 +167,14 @@ function LifePage(props) {
                 抹茶地圖 <i className="fas fa-arrow-right"></i>
               </button>
             </div>
-            <div className="card-vertical">
+            <div className="card-vertical flex-fill">
               <img className="c-v-img" src="/courses/CS008-2.jpg" />
               <button
                 type="button"
                 className="btn btn-primary c-v-button"
-                onClick={() => props.history.push('/life/course')}
+                onClick={() => {
+                  props.history.push('/life/course')
+                  localStorage.setItem('page', 1)}}
               >
                 達人推薦 <i className="fas fa-arrow-right"></i>
               </button>
@@ -180,13 +182,15 @@ function LifePage(props) {
           </div>
         </div>
         <div className="card-field2 d-flex flex-wrap col">
-          <div className="d-flex" data-aos="fade-up" data-aos-duration="800">
+          <div className="d-flex flex-fill " data-aos="fade-up" data-aos-duration="800">
             <div className="card-vertical">
               <img className="c-v-img" src="/courses/CS005-1.jpg" />
               <button
                 type="button"
                 className="btn btn-primary c-v-button"
-                onClick={() => props.history.push('/life/course')}
+                onClick={() => {
+                  props.history.push('/life/course')
+                  localStorage.setItem('page', 1)}}
               >
                 手作課程 <i className="fas fa-arrow-right"></i>
               </button>
@@ -199,7 +203,9 @@ function LifePage(props) {
               <button
                 type="button"
                 className="btn btn-primary c-v-button"
-                onClick={() => props.history.push('/life/course')}
+                onClick={() => {
+                  props.history.push('/life/course')
+                  localStorage.setItem('page', 1)}}
               >
                 熱門商品 <i className="fas fa-arrow-right"></i>
               </button>
@@ -221,6 +227,7 @@ function LifePage(props) {
           </div>
         </div>
       </div>
+
       <Container>{/* {lindaoriginal} */}</Container>
     </>
   )
