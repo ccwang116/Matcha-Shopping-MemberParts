@@ -1,3 +1,5 @@
+<img width="964" alt="home photo" src="https://github.com/0126cloud/mano-shop_React.js/blob/master/localhost_3000_mall.png">
+
 # About server 
 # Step 1
  開啟 mano_server 資料夾server.js 當中的app.use/category下方加入以下程式
