@@ -2,6 +2,6 @@
 <img width="964" alt="homepage photo" src="https://github.com/ccwang116/Matcha-Shopping-MemberParts/raw/master/homepage_screenshot.png">
 
 # Orders
-The client can see and search his own orders.
+The user can see and search his own orders.
 # Info
-The client can edit info , upload the new avatar, change password and check if it is correct in MemberCenter page. 
+The user can edit info , upload the new avatar, change password and check if it is correct in MemberCenter page. 
