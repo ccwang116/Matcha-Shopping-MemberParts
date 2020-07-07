@@ -5,12 +5,17 @@
 The user can see and search his own orders.
 # Info
 The user can edit info , upload the new avatar, change password and check if it is correct in MemberCenter page. 
-# 使用方式 Download info
+
+## 使用技術
+前端技術.HTML、SCSS、JavaScript、jQuery、RWD、APIs AJAX
+前端框架.React、Bootstrap 
+後端技術.PHP、ES5、ES6/Node.js、Babel、Express.js
+資 料 庫.MySQL、PHP My Admin
+版本控制.GitHub、Git
+程式軟體.Visual Studio Code
+設計原型.Adobe Photoshop、Adobe Illustrator
+
+## 使用方式 Download info
 此為協作檔案備份，
 完整檔案請洽 <a href="https://github.com/0126cloud/mano-shop_React.js">here</a>
-下載後有兩個專案，
-一個是mano_react，
-一個是mano_server，
-`各自啟動 npm i`
-mano_react: yarn start
-mano_server:nodemon server.js
+
