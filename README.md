@@ -19,3 +19,6 @@ The user can edit info , upload the new avatar, change password and check if it 
 此為協作檔案備份，
 完整檔案請洽 <a href="https://github.com/0126cloud/mano-shop_React.js">here</a>
 
+## RWD畫面預覽
+<img width="964" alt="homepage photo" src="https://github.com/ccwang116/Matcha-Shopping-MemberParts/raw/master/MatchaforRWD.jpg">
+
