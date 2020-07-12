@@ -40,12 +40,16 @@ function MemberItem(props) {
             </tr>
           </tbody>
           <thead>
+            <tr>
             <th>姓名</th>
             <th>聯絡電話</th>
+            </tr>
           </thead>
           <tbody>
+            <tr>
             <td>{member.memberName}</td>
             <td>{member.phone}</td>
+            </tr>
           </tbody>
           <thead>
             <tr>
@@ -60,12 +64,16 @@ function MemberItem(props) {
             </tr>
           </tbody>
           <thead>
+            <tr>
             <th>會員等級</th>
             <th>會員加入時間</th>
+            </tr>
           </thead>
           <tbody>
+            <tr>
             <td>{member.class}</td>
             <td>{member.created_at}</td>
+            </tr>
           </tbody>
         </Table>
         <div className=" d-flex justify-content-end">
